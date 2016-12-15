@@ -1,0 +1,7 @@
+---
+docker_registry_host: localhost
+docker_registry_port: 5000
+docker_registry_search_backend: sqlalchemy
+docker_registry_sqlalchemy_index_database: sqlite:////tmp/docker-registry.db
+docker_registry_storage_path: /var/lib/docker-registry
+docker_registry_insecure: false
