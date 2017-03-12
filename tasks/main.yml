@@ -16,3 +16,4 @@
 
 - name: Ensure docker registry is started and enabled to start at boot.
   service: name=docker-registry state=started enabled=yes
+  when: ansible_connection != 'docker'
