@@ -5,3 +5,12 @@ docker_registry_search_backend: sqlalchemy
 docker_registry_sqlalchemy_index_database: sqlite:////tmp/docker-registry.db
 docker_registry_storage_path: /var/lib/docker-registry
 docker_registry_insecure: false
+
+# openstack swift
+docker_registry_storage_path: _env:STORAGE_PATH:/registry
+docker_registry_swift_authurl: _env:OS_AUTH_URL
+docker_registry_swift_container: _env:OS_CONTAINER
+docker_registry_swift_user: _env:OS_USERNAME
+docker_registry_swift_password: _env:OS_PASSWORD
+docker_registry_swift_tenant_name: _env:OS_TENANT_NAME
+docker_registry_swift_region_name: _env:OS_REGION_NAME
