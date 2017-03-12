@@ -1,3 +1,4 @@
 ---
 - name: restart docker-registry
-  service: name=docker-registry state=restarted  
+  service: name=docker-registry state=restarted
+  when: ansible_connection != 'docker'
