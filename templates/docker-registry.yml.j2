@@ -147,14 +147,14 @@ gcs:
 swift: &swift
     <<: *common
     storage: swift
-    storage_path: _env:STORAGE_PATH:/registry
+    storage_path: "{{ docker_registry_swift_storage_path }}"
     # keystone authorization
-    swift_authurl: _env:OS_AUTH_URL
-    swift_container: _env:OS_CONTAINER
-    swift_user: _env:OS_USERNAME
-    swift_password: _env:OS_PASSWORD
-    swift_tenant_name: _env:OS_TENANT_NAME
-    swift_region_name: _env:OS_REGION_NAME
+    swift_authurl: "{{ docker_registry_swift_authurl }}"
+    swift_container: "{{ docker_registry_swift_container }}"
+    swift_user: "{{ docker_registry_swift_user }}"
+    swift_password: "{{ docker_registry_swift_password }}"
+    swift_tenant_name: "{{ docker_registry_swift_tenant_name }}"
+    swift_region_name: "{{ docker_registry_swift_region_name }}"
 
 # This flavor stores the images in Glance (to integrate with openstack)
 # See also: https://github.com/docker/openstack-docker

@@ -7,7 +7,7 @@ docker_registry_storage_path: /var/lib/docker-registry
 docker_registry_insecure: false
 
 # openstack swift
-docker_registry_storage_path: _env:STORAGE_PATH:/registry
+docker_registry_swift_storage_path: _env:STORAGE_PATH:/registry
 docker_registry_swift_authurl: _env:OS_AUTH_URL
 docker_registry_swift_container: _env:OS_CONTAINER
 docker_registry_swift_user: _env:OS_USERNAME
