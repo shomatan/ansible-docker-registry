@@ -5,9 +5,19 @@ log:
   fields:
     service: registry
 storage:
-    cache:
-        layerinfo: inmemory
-    filesystem:
-        rootdirectory: {{ docker_registry_storage_path }}
+  cache:
+    layerinfo: inmemory
+  swift:
+    username: {{ docker_registry_swift_username }}
+    password: {{ docker_registry_swift_password }}
+    authurl: {{ docker_registry_swift_authurl }}
+    tenant: {{ docker_registry_swift_tenant }}
+    tenantid: {{ docker_registry_swift_tenantid }}
+    domain: {{ docker_registry_swift_domain }}
+    domainid: {{ docker_registry_swift_domainid }}
+    insecureskipverify: {{ docker_registry_swift_insecureskipverify }}
+    region: {{ docker_registry_swift_region }}
+    container: {{ docker_registry_swift_container }}
+    rootdirectory: {{ docker_registry_swift_rootdirectory }}
 http:
-    addr: :5000
+    addr: {{ docker_registry_host }}:{{ docker_registry_port }}

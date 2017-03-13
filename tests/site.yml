@@ -2,4 +2,9 @@
 - hosts: vagrant
   become: true
   roles:
-    - docker-registry
+    - role: docker-registry
+      docker_registry_swift_username: docker
+      docker_registry_swift_password: assist0730
+      docker_registry_swift_authurl: https://cloud.assist-grp.jp:5000/v3
+      docker_registry_swift_tenant: docker-registry
+      docker_registry_swift_container: images
