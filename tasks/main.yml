@@ -4,16 +4,16 @@
   file: path={{ docker_registry_storage_path }} state=directory
 
 - name: Ensure docker registry is installed.
-  yum: name=docker-registry state=installed
+  yum: name=docker-distribution state=installed
 
-- name: Place docker registry config file.
-  template: src=docker-registry.yml.j2 dest=/etc/docker-registry.yml
-  notify: restart docker-registry
+# - name: Place docker registry config file.
+#   template: src=docker-distribution.yml.j2 dest=/etc/docker-distribution/registry/config.yml
+#   notify: restart docker-distribution
 
 - name: Place docker sysconfig file.
   template: src=docker.j2 dest=/etc/sysconfig/docker
-  notify: restart docker
+  notify: docker-distribution
 
 - name: Ensure docker registry is started and enabled to start at boot.
-  service: name=docker-registry state=started enabled=yes
+  service: name=docker-distribution state=started enabled=yes
   when: ansible_connection != 'docker'

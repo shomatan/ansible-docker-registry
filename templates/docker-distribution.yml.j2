@@ -1,0 +1,13 @@
+# Managed by ansible
+
+version: 0.1
+log:
+  fields:
+    service: registry
+storage:
+    cache:
+        layerinfo: inmemory
+    filesystem:
+        rootdirectory: {{ docker_registry_storage_path }}
+http:
+    addr: :5000
