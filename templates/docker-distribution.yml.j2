@@ -20,4 +20,4 @@ storage:
     container: {{ docker_registry_swift_container }}
     rootdirectory: {{ docker_registry_swift_rootdirectory }}
 http:
-    addr: {{ docker_registry_host }}:{{ docker_registry_port }}
+    addr: :{{ docker_registry_port }}
