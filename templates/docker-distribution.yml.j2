@@ -5,8 +5,11 @@ log:
   fields:
     service: registry
 storage:
-  cache:
-    layerinfo: inmemory
+{% if docker_registry_storage_driver == "filesystem" %}
+  filesystem:
+    rootdirectory: {{ docker_registry_filesystem_rootdirectory }}
+{% endif %}
+{% if docker_registry_storage_driver == "swift" %}
   swift:
     username: {{ docker_registry_swift_username }}
     password: {{ docker_registry_swift_password }}
@@ -14,12 +17,13 @@ storage:
     tenant: {{ docker_registry_swift_tenant }}
 {% if docker_registry_swift_tenantid == "" %}
     tenantid: {{ docker_registry_swift_tenantid }}
-{% endif %}    
+{% endif %}
     container: {{ docker_registry_swift_container }}
     domain: {{ docker_registry_swift_domain }}
     domainid: {{ docker_registry_swift_domainid }}
     insecureskipverify: {{ docker_registry_swift_insecureskipverify }}
     region: {{ docker_registry_swift_region }}
     rootdirectory: {{ docker_registry_swift_rootdirectory }}
+{% endif %}
 http:
     addr: :{{ docker_registry_port }}

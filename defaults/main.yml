@@ -1,6 +1,9 @@
 ---
 docker_registry_port: 5000
-docker_registry_storage_path: /var/lib/registry
+docker_registry_storage_driver: filesystem
+
+# filesystem
+docker_registry_filesystem_rootdirectory: /var/lib/registry
 
 # openstack swift
 docker_registry_swift_username: null
