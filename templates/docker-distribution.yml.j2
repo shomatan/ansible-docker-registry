@@ -15,7 +15,7 @@ storage:
     password: {{ docker_registry_swift_password }}
     authurl: {{ docker_registry_swift_authurl }}
     tenant: {{ docker_registry_swift_tenant }}
-{% if docker_registry_swift_tenantid == "" %}
+{% if docker_registry_swift_tenantid != "" %}
     tenantid: {{ docker_registry_swift_tenantid }}
 {% endif %}
     container: {{ docker_registry_swift_container }}
