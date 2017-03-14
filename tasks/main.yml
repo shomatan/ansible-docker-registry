@@ -16,12 +16,6 @@
     dest: /etc/docker-distribution/registry/config.yml
   notify: restart docker-distribution
 
-- name: Place docker sysconfig file.
-  template:
-    src: docker.j2
-    dest: /etc/sysconfig/docker
-  notify: restart docker-distribution
-
 - name: Ensure docker registry is started and enabled to start at boot.
   service: name=docker-distribution state=started enabled=yes
   when: ansible_connection != 'docker'

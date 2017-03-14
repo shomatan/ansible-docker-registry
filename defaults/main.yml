@@ -1,8 +1,6 @@
 ---
-docker_registry_host: localhost
 docker_registry_port: 5000
 docker_registry_storage_path: /var/lib/registry
-docker_registry_insecure: false
 
 # openstack swift
 docker_registry_swift_username: null
