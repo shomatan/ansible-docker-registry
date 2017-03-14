@@ -2,8 +2,9 @@
 
 - name: Create docker image storage directory.
   file:
-    path: "{{ docker_registry_storage_path }}"
+    path: "{{ docker_registry_filesystem_rootdirectory }}"
     state: directory
+  when: docker_registry_storage_driver == "filesystem"
 
 - name: Ensure docker registry is installed.
   yum:
