@@ -38,3 +38,9 @@ http:
     certificate: {{ docker_registry_http_tls_certificate }}
     key: {{ docker_registry_http_tls_key }}
 {% endif %}
+{% if docker_registry_auth_htpasswd_path != "" %}
+auth:
+  htpasswd:
+    realm: basic-realm
+    path: {{ docker_registry_auth_htpasswd_path }}
+{% endif %}

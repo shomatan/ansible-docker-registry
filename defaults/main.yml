@@ -8,6 +8,9 @@ docker_registry_http_secret: ""
 docker_registry_http_tls_certificate: ""
 docker_registry_http_tls_key: ""
 
+# [auth]
+docker_registry_auth_htpasswd_path: ""
+
 # filesystem
 docker_registry_filesystem_rootdirectory: /var/lib/registry
 
