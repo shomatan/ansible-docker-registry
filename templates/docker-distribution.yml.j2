@@ -27,3 +27,14 @@ storage:
 {% endif %}
 http:
   addr: :{{ docker_registry_http_port }}
+{% if docker_registry_http_host != "" %}
+  host: {{ docker_registry_http_host }}:{{ docker_registry_http_port }}
+{% endif %}
+{% if docker_registry_http_secret != "" %}
+  secret: {{ docker_registry_http_secret }}
+{% endif %}
+{% if docker_registry_http_tls_certificate != "" and docker_registry_http_tls_key != "" %}
+  tls:
+    certificate: {{ docker_registry_http_tls_certificate }}
+    key: {{ docker_registry_http_tls_key }}
+{% endif %}
