@@ -19,10 +19,16 @@ storage:
     tenantid: {{ docker_registry_swift_tenantid }}
 {% endif %}
     container: {{ docker_registry_swift_container }}
+{% if docker_registry_swift_domain != "" %}
     domain: {{ docker_registry_swift_domain }}
+{% endif %}
+{% if docker_registry_swift_domainid != "" %}
     domainid: {{ docker_registry_swift_domainid }}
+{% endif %}
     insecureskipverify: {{ docker_registry_swift_insecureskipverify }}
+{% if docker_registry_swift_region != "" %}
     region: {{ docker_registry_swift_region }}
+{% endif %}
     rootdirectory: {{ docker_registry_swift_rootdirectory }}
 {% endif %}
 http:
